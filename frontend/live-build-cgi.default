@@ -8,12 +8,12 @@ _DEBUG="false"
 
 _INSTANCES="1"
 
-_DESTDIR="/srv/debian-live/build/www"
-_TEMPLATES="/usr/share/live/build/templates/cgi/${_MODE}"
-_TEMPDIR="/srv/debian-live/build/tmp"
+_DESTDIR="/var/www/html"
+_TEMPLATES="/usr/share/live/build-cgi/templates/cgi/${_MODE}"
+_TEMPDIR="/srv/build-cgi/tmp"
 
-_SERVER="http://live-systems.org/build"
+_SERVER="http://yourServerName/cgi-bin/build-cgi"
 
-_LB_GIT="git://live-systems.org/git/live-images.git"
+_LB_GIT="https://sources.open-infrastructure.net/software/system-images"
 
 _CGI_CONFIG_APPEND=""
