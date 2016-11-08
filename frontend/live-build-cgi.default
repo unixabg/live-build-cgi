@@ -9,7 +9,7 @@ _DEBUG="false"
 _INSTANCES="1"
 
 _DESTDIR="/var/www/html"
-_TEMPLATES="/usr/share/live/build-cgi/templates/cgi/${_MODE}"
+_TEMPLATES="/usr/share/live/build-cgi/templates/${_MODE}"
 _TEMPDIR="/srv/build-cgi/tmp"
 
 _SERVER="http://yourServerName/cgi-bin/build-cgi"
