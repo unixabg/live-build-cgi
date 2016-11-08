@@ -4,7 +4,7 @@ SHELL := sh -e
 
 LANGUAGES = $(shell cd manpages/po && ls)
 
-SCRIPTS = frontend/live-build-cgi frontend/live-build-cgi.cron frontend/live-build-status-cgi
+SCRIPTS = frontend/live-build-cgi frontend/live-build-cgi.cron frontend/live-build-cgi-status
 
 all: build
 
@@ -43,8 +43,8 @@ install:
 	cp -r frontend/* templates VERSION $(DESTDIR)/usr/share/live/build-cgi
 
 	# Installing executables
-	install -D -m 0755 frontend/live-build-cgi $(DESTDIR)/usr/lib/cgi-bin/live-build
-	install -D -m 0755 frontend/live-build-status-cgi $(DESTDIR)/usr/lib/cgi-bin/live-build-status
+	install -D -m 0755 frontend/live-build-cgi $(DESTDIR)/usr/lib/cgi-bin/live-build-cgi
+	install -D -m 0755 frontend/live-build-cgi-status $(DESTDIR)/usr/lib/cgi-bin/live-build-cgi-status
 
 	# Installing crontabs and defaults
 	install -D -m 0755 frontend/live-build-cgi.cron $(DESTDIR)/etc/cron.hourly/live-build-cgi
@@ -74,12 +74,12 @@ install:
 
 uninstall:
 	# Uninstalling shared data
-	rm -rf $(DESTDIR)/usr/share/live/build
+	rm -rf $(DESTDIR)/usr/share/live/build-cgi
 	rmdir --ignore-fail-on-non-empty $(DESTDIR)/usr/share/live > /dev/null 2>&1 || true
 
 	# Uninstalling executables
-	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build
-	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build-status
+	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build-cgi
+	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build-cgi-status
 
 	# Uninstalling crontabs and defaults
 	rm -f $(DESTDIR)/etc/cron.d/live-build-cgi
