@@ -4,7 +4,7 @@ SHELL := sh -e
 
 LANGUAGES = $(shell cd manpages/po && ls)
 
-SCRIPTS = frontend/live-build-cgi frontend/live-build-cgi.cron
+SCRIPTS = frontend/live-build-cgi frontend/live-build-cgi.cron frontend/live-build-status-cgi
 
 all: build
 
@@ -43,15 +43,18 @@ install:
 	cp -r frontend/* templates VERSION $(DESTDIR)/usr/share/live/build-cgi
 
 	# Installing executables
-	mkdir -p $(DESTDIR)/usr/bin
-	cp -a frontend/cli/* $(DESTDIR)/usr/bin
+	install -D -m 0755 frontend/live-build-cgi $(DESTDIR)/usr/lib/cgi-bin/live-build
+	install -D -m 0755 frontend/live-build-status-cgi $(DESTDIR)/usr/lib/cgi-bin/live-build-status
 
-	mkdir -p $(DESTDIR)/usr/lib/live
-	cp -a scripts/* $(DESTDIR)/usr/lib/live
+	# Installing crontabs and defaults
+	install -D -m 0755 frontend/live-build-cgi.cron $(DESTDIR)/etc/cron.hourly/live-build-cgi
+	install -D -m 0644 frontend/live-build-cgi.crontab $(DESTDIR)/etc/cron.d/live-build-cgi
+	install -D -m 0644 frontend/live-build-cgi.default $(DESTDIR)/etc/default/live-build-cgi
+	install -D -m 0644 frontend/live-build-cgi.logrotate $(DESTDIR)/etc/logrotate.d/live-build-cgi
 
-	# Installing documentation
-	mkdir -p $(DESTDIR)/usr/share/doc/live-build
-	cp -r COPYING examples $(DESTDIR)/usr/share/doc/live-build
+	# Installing log structure
+	mkdir -p $(DESTDIR)/var/log/live
+	chown www-data:www-data $(DESTDIR)/var/log/live
 
 	# Installing manpages
 	for MANPAGE in manpages/en/*; \
@@ -75,10 +78,17 @@ uninstall:
 	rmdir --ignore-fail-on-non-empty $(DESTDIR)/usr/share/live > /dev/null 2>&1 || true
 
 	# Uninstalling executables
-	rm -f $(DESTDIR)/usr/bin/lb $(DESTDIR)/usr/bin/live-build
+	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build
+	rm -f $(DESTDIR)/usr/lib/cgi-bin/live-build-status
 
-	# Uninstalling documentation
-	rm -rf $(DESTDIR)/usr/share/doc/live-build
+	# Uninstalling crontabs and defaults
+	rm -f $(DESTDIR)/etc/cron.d/live-build-cgi
+	rm -f $(DESTDIR)/etc/cron.hourly/live-build-cgi
+	rm -f $(DESTDIR)/etc/default/live-build-cgi
+	rm -f $(DESTDIR)/etc/logrotate.d/live-build-cgi
+
+	# Uninstalling log structure
+	rm -rf $(DESTDIR)/var/log/live
 
 	# Uninstalling manpages
 	for MANPAGE in manpages/en/*; \
