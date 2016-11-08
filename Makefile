@@ -53,8 +53,8 @@ install:
 	install -D -m 0644 frontend/live-build-cgi.logrotate $(DESTDIR)/etc/logrotate.d/live-build-cgi
 
 	# Installing log structure
-	mkdir -p $(DESTDIR)/var/log/live
-	chown www-data:www-data $(DESTDIR)/var/log/live
+	mkdir -p $(DESTDIR)/var/log/live-build-cgi
+	chown www-data:www-data $(DESTDIR)/var/log/live-build-cgi
 
 	# Installing manpages
 	for MANPAGE in manpages/en/*; \
@@ -88,7 +88,7 @@ uninstall:
 	rm -f $(DESTDIR)/etc/logrotate.d/live-build-cgi
 
 	# Uninstalling log structure
-	rm -rf $(DESTDIR)/var/log/live
+	rm -rf $(DESTDIR)/var/log/live-build-cgi
 
 	# Uninstalling manpages
 	for MANPAGE in manpages/en/*; \

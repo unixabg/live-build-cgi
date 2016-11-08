@@ -1,6 +1,6 @@
-# /etc/logrotate.d/live-build
+# /etc/logrotate.d/live-build-cgi
 
-/var/log/live
+/var/log/live-build-cgi
 {
 	compress
 	copytruncate
