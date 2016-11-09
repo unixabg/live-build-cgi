@@ -12,7 +12,7 @@ _DESTDIR="/var/www/html"
 _TEMPLATES="/usr/share/live/build-cgi/templates/${_MODE}"
 _TEMPDIR="/srv/build-cgi/tmp"
 
-_SERVER="http://yourServerName/cgi-bin/live-build-cgi"
+_SERVER="http://yourServerName"
 
 _LB_GIT="https://sources.open-infrastructure.net/software/system-images"
 
