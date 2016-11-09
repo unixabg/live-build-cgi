@@ -8,7 +8,7 @@ This is live-build web-frontend <http://live-build.debian.net/> of the Live Syst
 
 Your build BUILD was started DATE_START and ended DATE_END with status 'STATUS'.
 
-You can see the log file and download the image from <SERVER/BUILD/>.
+You can see the log file and download the image from <SERVER/build/BUILD/>.
 
 Note that builds are removed after 24 hours.
 
