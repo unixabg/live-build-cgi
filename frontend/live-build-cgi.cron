@@ -50,9 +50,9 @@ trap "test -f /var/lock/live-build-cgi-${_LOCKNUM}.lock && rm -f /var/lock/live-
 touch /var/lock/live-build-cgi-${_LOCKNUM}.lock
 
 # Cleanup old builds: cron should be run at least once per hour to take effect
-if ls "${_DESTDIR}"/build/`date -d yesterday +%Y%m%d.%H`* > /dev/null 2>&1
+if ls "${_DESTDIR}"/`date -d yesterday +%Y%m%d.%H`* > /dev/null 2>&1
 then
-	rm -rf "${_DESTDIR}"/build/`date -d yesterday +%Y%m%d.%H`*
+	rm -rf "${_DESTDIR}"/`date -d yesterday +%Y%m%d.%H`*
 
 	echo "`date +%b\ %d\ %H:%M:%S` ${_HOSTNAME} live-build-cgi: remove web build (`date -d yesterday +%Y%m%d.%H`*)." >> /var/log/live-build-cgi/build
 fi
