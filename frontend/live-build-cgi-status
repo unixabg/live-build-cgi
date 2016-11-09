@@ -89,7 +89,7 @@ else
 
 	elif [ -f "${_DESTDIR}"/"${_CGI_BUILD}"/build ]
 	then
-		# If build file exists the tempdir/build folder the build is running.
+		# If build file exists the destdir/build folder the build attempt is completed.
 		_STATUS="COMPLETED"
 		. "${_DESTDIR}"/"${_CGI_BUILD}"/build
 
