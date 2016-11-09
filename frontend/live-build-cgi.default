@@ -8,7 +8,7 @@ _DEBUG="false"
 
 _INSTANCES="1"
 
-_DESTDIR="/var/www/html"
+_DESTDIR="/var/www/html/build"
 _TEMPLATES="/usr/share/live/build-cgi/templates/${_MODE}"
 _TEMPDIR="/srv/build-cgi/tmp"
 
