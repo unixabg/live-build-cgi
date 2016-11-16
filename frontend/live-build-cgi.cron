@@ -82,7 +82,7 @@ then
 	fi
 
 	# Now set a variable for the correct build path
-	_BUILD_PATH="${_TEMPDIR}/${_BUILD}/images/${_LB_CONFIG}"
+	_BUILD_PATH="${_TEMPDIR}/${_BUILD}/share/images/${_LB_CONFIG}"
 
 	_DATE_START="`date -R`"
 	echo "Begin live-build-cgi: ${_DATE_START}" > "${_BUILD_PATH}"/log
