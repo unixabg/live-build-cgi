@@ -78,7 +78,7 @@ then
 	# Sanity check to default to something since we are going to build from git clone.
 	if [ -z "${_LB_CONFIG}" ]
 	then
-		_LB_CONFIG="standard"
+		_LB_CONFIG="base-system"
 	fi
 
 	# Now set a variable for the correct build path
