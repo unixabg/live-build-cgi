@@ -11,7 +11,7 @@ Vcs-Git: git://live-systems.org/git/live-build-cgi.git
 
 Package: live-build-cgi
 Architecture: all
-Depends: ${misc:Depends}, live-build (>= 5), live-build (<= 6)
+Depends: ${misc:Depends}, live-build (>= 5), live-build (<= 6), bash
 Recommends:
  apache2 | httpd,
  cron,
