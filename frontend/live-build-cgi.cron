@@ -154,10 +154,10 @@ EOF
 
 	cat "${_TEMPDIR}"/"${_BUILD}"/"${_BUILD}".build >> "${_DESTDIR}"/"${_BUILD}"/mail
 
-	# Moving live-image-* files
-	if Find_files ${_BUILD_PATH}/live-image-*
+	# Moving system-* files
+	if Find_files ${_BUILD_PATH}/system-*
 	then
-		mv "${_BUILD_PATH}"/live-image-* "${_DESTDIR}"/"${_BUILD}"
+		mv "${_BUILD_PATH}"/system-* "${_DESTDIR}"/"${_BUILD}"
 	fi
 
 	# Moving build
