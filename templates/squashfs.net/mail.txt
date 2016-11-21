@@ -1,0 +1,18 @@
+Subject: SquashFS.net, live-build-cgi web-frontend - Build BUILD
+From: SquashFS.net live-build-cgi web-frontend <software@lists.open-infrastructure.net>
+To: EMAIL
+
+Hi,
+
+This is live-build-cgi web-frontend of SquashFS.net <http://squashfs.net/>.
+
+Your build BUILD was started DATE_START and ended DATE_END with status 'STATUS'.
+
+You can see the log file and download the image from <SERVER/build/BUILD/>.
+
+Note that builds may be removed after 24 hours.
+
+Feedback about your image composed by SquashFS.net can be sent to the mailinglist at software@lists.open-infrastructure.net (no subscription required).
+
+Have fun,
+The SquashFS.net Team
