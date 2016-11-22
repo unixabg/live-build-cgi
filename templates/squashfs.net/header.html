@@ -30,6 +30,19 @@
       <script src="/meta/html5shiv/html5shiv.min.js"></script>
       <script src="/meta/respond/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" language="JavaScript">
+      function collapse(x, txt) {
+        var oTemp=document.getElementById("text_"+x);
+        var oClick=document.getElementById("click_"+x);
+        if (oTemp.style.display=="block") {
+          oTemp.style.display="none";
+          oClick.innerHTML=txt+"&nbsp<small>(click to expand)<\/small><br \/>";
+        } else {
+          oTemp.style.display="block";
+          oClick.innerHTML=txt+"&nbsp<small>(click to collapse)<\/small><br \/>";
+        }
+      }
+    </script>
   </head>
 
   <body>
