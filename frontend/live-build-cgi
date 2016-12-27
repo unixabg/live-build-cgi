@@ -118,6 +118,7 @@ else
 		    -e "s/DATE/`date +%Y%m%d-%H:%M`/" \
 		"${_TEMPLATES}"/form.html
 
+		sed -e "s/VERSION/${VERSION}/" "${_TEMPLATES}"/footer.html
 		exit
 	fi
 
