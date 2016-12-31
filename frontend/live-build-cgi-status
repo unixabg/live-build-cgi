@@ -137,6 +137,6 @@ else
 	else
 		echo "Your request of ${_CGI_BUILD}, resulted in a malformed request or build number not found. All requests are logged."
 	fi
-	echo "$(date +%b\ %d\ %H:%M:%S) ${_HOSTNAME} live-build-status: ${_STATUS} build status requested for (${_CGI_BUILD}) from ${REMOTE_ADDR}." >> /var/log/live/live-build-status
+	echo "$(date +%b\ %d\ %H:%M:%S) ${_HOSTNAME} live-build-status: ${_STATUS} build status requested for (${_CGI_BUILD}) from ${REMOTE_ADDR}." >> /var/log/live-build-cgi/live-build-status
 fi
 sed -e "s/VERSION/${VERSION}/" "${_TEMPLATES}"/footer.html
